@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var req=new XMLHttpRequest();
+req.open("GET","https://restcountries.com/v3.1/all")
+req.send();
+req.onload=function(){
+    var result=JSON.parse(req.response)
+    var asia=result.filter((country)=>country.continents=='Asia'||country.region=='Asia')
+       // console.log(asia)   
+        var asiaCountry=asia.map((countryName)=>countryName.name.common)
+      
+        console.log(asiaCountry)
+
+}
+
+
+
+    </script>
+</body>
+</html>
